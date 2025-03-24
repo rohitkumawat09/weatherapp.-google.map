@@ -1,16 +1,44 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+#weathermap {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+#city {
+  padding: 10px;
+  width: 70%;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+#submitBtn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#submitBtn:hover {
+  background-color: #45a049;
+}
+
+#result {
+  margin-top: 20px;
+}
+
+#map {
+  width: 100%;
+  height: 400px;  
+  margin-top: 20px;
+  border-radius: 10px;
+}
+div#result {
   text-align: center;
 }
-html,
-body {
-  height: 100%;
-}
-#map {
-  height: 40%;
-  width: 40%;
-}
-
-

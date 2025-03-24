@@ -1,3 +1,4 @@
+
 const input = document.getElementById("city")
 const btn = document.getElementById("submitBtn")
 const result = document.getElementById("result")
@@ -30,6 +31,11 @@ async function OpenWeatherMap(plaace) {
                     
         
         `
+        const lat = data.coord.lat;
+        const lon = data.coord.lon;
+
+        // Update map position based on the city's coordinates
+        updateMap(lat, lon);
     }
 
 
@@ -39,27 +45,6 @@ async function OpenWeatherMap(plaace) {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -122,6 +107,7 @@ let map;
 async function initMap() {
   // The location of Uluru
   const position = { lat: 26.8778614, lng: 75.6394958 };
+  
   // Request needed libraries.
   //@ts-ignore
   const { Map } = await google.maps.importLibrary("maps");
@@ -141,5 +127,25 @@ async function initMap() {
     title: "Uluru",
   });
 }
+
+function updateMap(lat, lon) {
+    const newPosition = { lat, lng: lon };
+
+    if (map) {
+        map.setCenter(newPosition);
+
+        if (map.marker) {
+            map.marker.setPosition(newPosition);
+        } else {
+            const marker = new google.maps.Marker({
+                position: newPosition,
+                map: map,
+                title: "Location",
+            });
+            map.marker = marker; 
+        }
+    }
+}
+
 
 initMap();
